@@ -23,7 +23,7 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 
 const CompressVideo = () => {
-  const [videoFile, setVideoFile] = useState<FileActions>();
+  const [mediaFile, setMediaFile] = useState<FileActions>();
   const [progress, setProgress] = useState<number>(0);
   const [time, setTime] = useState<{
     startTime?: Date;
@@ -33,7 +33,7 @@ const CompressVideo = () => {
     "notStarted" | "converted" | "compressing"
   >("notStarted");
   const [videoSettings, setVideoSettings] = useState<VideoInputSettings>({
-    quality: QualityType.Hight,
+    quality: QualityType.High,
     videoType: VideoFormats.MP4,
     customEndTime: 0,
     customStartTime: 0,
@@ -58,7 +58,7 @@ const CompressVideo = () => {
   }, [time]);
 
   const handleUpload = (file: File) => {
-    setVideoFile({
+    setMediaFile({
       fileName: file.name,
       fileSize: file.size,
       from: file.name.slice(((file.name.lastIndexOf(".") - 1) >>> 0) + 2),
@@ -69,7 +69,7 @@ const CompressVideo = () => {
   };
 
   const compress = async () => {
-    if (!videoFile) return;
+    if (!mediaFile) return;
     try {
       setTime({ ...time, startTime: new Date() });
       setStatus("compressing");
@@ -82,11 +82,11 @@ const CompressVideo = () => {
       });
       const { url, output, outputBlob } = await convertFile(
         ffmpegRef.current,
-        videoFile,
+        mediaFile,
         videoSettings
       );
-      setVideoFile({
-        ...videoFile,
+      setMediaFile({
+        ...mediaFile,
         url,
         output,
         outputBlob,
@@ -141,8 +141,8 @@ const CompressVideo = () => {
         transition={{ type: "tween" }}
         className="flex border rounded-3xl col-span-5 md:h-full w-full bg-gray-50/35"
       >
-        {videoFile ? (
-          <VideoDisplay videoUrl={URL.createObjectURL(videoFile.file)} />
+        {mediaFile ? (
+          <VideoDisplay videoUrl={URL.createObjectURL(mediaFile.file)} />
         ) : (
           <CustomDropZone
             acceptedFiles={acceptedVideoFiles}
@@ -161,11 +161,11 @@ const CompressVideo = () => {
           className="flex border rounded-3xl col-span-3 h-full w-full bg-gray-50/35 p-4 relative"
         >
           <div className="flex flex-col gap-4 w-full">
-            {videoFile && (
+            {mediaFile && (
               <>
                 <VideoInputDetails
                   onClear={() => window.location.reload()}
-                  videoFile={videoFile}
+                  videoFile={mediaFile}
                 />
                 <VideoTrim
                   disable={disableDuringCompression}
@@ -205,10 +205,10 @@ const CompressVideo = () => {
                 </button>
               )}
             </motion.div>
-            {status === "converted" && videoFile && (
+            {status === "converted" && mediaFile && (
               <VideoOutputDetails
                 timeTaken={time.elapsedSeconds}
-                videoFile={videoFile}
+                videoFile={mediaFile}
               />
             )}
           </div>

@@ -47,7 +47,7 @@ const Footer = () => (
         <p className="font-semibold">Compress</p>
       </Link>
       <p className="text-gray-500 pt-4 text-sm">
-        No © 2024 Compress Videos for Free. Forever
+        No © 2024 Compress Videos and Images for Free
       </p>
     </div>
     <div className="justify-center font-medium text-gray-600 text-sm divide-x-2 flex pt-10">

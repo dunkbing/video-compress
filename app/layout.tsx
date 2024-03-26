@@ -81,16 +81,6 @@ export default function RootLayout({
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#616161" />
         <meta name="msapplication-TileColor" content="#616161" />
         <meta name="theme-color" content="#616161" />
-        <script
-          defer
-          data-domain="videocompress.prolab.sh"
-          src="https://plausible.pranavp.xyz/js/script.js"
-        ></script>
-        <script
-          defer
-          data-domain="videocompress.prolab.sh"
-          src="https://plausible.pranavp.xyz/js/script.tagged-events.js"
-        ></script>
       </head>
       <body
         className={`bg-gray-50 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px] h-full w-full ${inter.className}`}

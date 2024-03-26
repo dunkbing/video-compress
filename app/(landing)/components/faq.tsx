@@ -67,11 +67,11 @@ const FAQ = [
   },
   {
     title: "Where are Compressed Videos Saved?",
-    description: `When you compress a video using a web-based tool, the compressed version won't be saved directly on your computer unless you download it manually.`,
+    description: "When you compress a video using a web-based tool, the compressed version won't be saved directly on your computer unless you download it manually.",
   },
   {
     title: "What types of videos can be compressed with this tool",
-    description: `When you compress a video using a web-based tool, the compressed version won't be saved directly on your computer unless you download it manually.`,
+    description: "When you compress a video using a web-based tool, the compressed version won't be saved directly on your computer unless you download it manually.",
   },
   {
     title: "What Video Formats Can be Compressed with this Tool",

@@ -4,7 +4,7 @@
 
 ## Overview
 
-Compress Videos for Free. Forever. Say goodbye to bulky files! Crush video sizes by 90% with no quality loss, even offline. And the best part? It's free!
+Compress Videos and Images for Free. Say goodbye to bulky files! Crush video sizes by 90% with no quality loss, even offline. And the best part? It's free!
 
 ## ⛰️ Preview
 

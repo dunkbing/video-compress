@@ -12,16 +12,16 @@ export type FileActions = {
 
 
 export enum VideoFormats {
-    MP4 = 'mp4',
-    MKV = 'mkv',
-    AVI = 'avi',
-    MOV = 'mov',
-    FLV = 'flv',
+    MP4 = "mp4",
+    MKV = "mkv",
+    AVI = "avi",
+    MOV = "mov",
+    FLV = "flv",
     WEBM = "webm"
 }
 
 export enum QualityType {
-    Hight = "15",
+    High = "15",
     Medium = "18",
     Low = "20"
 }
@@ -34,4 +34,3 @@ export type VideoInputSettings = {
     removeAudio: boolean
     twitterCompressionCommand: boolean
 }
-

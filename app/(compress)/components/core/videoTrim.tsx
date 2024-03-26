@@ -4,11 +4,13 @@ import { VideoSlider } from "~/components/ui/videoSlider";
 import { VideoInputSettings } from "~/types";
 import { calculateTimeInHoursMinutesSeconds } from "~/utils/timeConverter";
 import { motion } from "framer-motion";
+
 type VideoTrimProps = {
   videoSettings: VideoInputSettings;
   onVideoSettingsChange: (value: VideoInputSettings) => void;
   disable: boolean;
 };
+
 export const VideoTrim = ({
   onVideoSettingsChange,
   videoSettings,

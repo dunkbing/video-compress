@@ -2,17 +2,17 @@
   "name": "video-compression",
   "version": "0.1.0",
   "private": true,
-  "description": "Compress Videos for Free. Forever. Say goodbye to bulky files! Crush video sizes by 90% with no quality loss, even offline. And the best part? It's free!",
+  "description": "Compress Videos and Images for Free. Say goodbye to bulky files! Crush video sizes by 90% with no quality loss, even offline. And the best part? It's free!",
   "author": {
-    "name": "Pranav",
-    "email": "hi@pranavp.xyz",
-    "website": "https://pranavp.xyz",
-    "twitter": "https://twitter.com/thatspranav",
-    "linkedin": "https://www.linkedin.com/in/pranavp10/"
+    "name": "Binh",
+    "email": "bing@db99.dev",
+    "website": "https://db99.dev",
+    "twitter": "https://twitter.com/dunkbingg",
+    "linkedin": "https://www.linkedin.com/in/dunkbing/"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/pranavp10/videocompress"
+    "url": "https://github.com/dunkbing/tinyimg"
   },
   "keywords": [
     "Free Video Compressor",
@@ -29,7 +29,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint --fix"
   },
   "dependencies": {
     "@ffmpeg/ffmpeg": "^0.12.10",
@@ -67,6 +67,6 @@
     "eslint-config-next": "14.1.0",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
-    "typescript": "^5"
+    "typescript": "^5.4.3"
   }
 }

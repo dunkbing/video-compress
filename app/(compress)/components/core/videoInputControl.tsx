@@ -44,9 +44,8 @@ export const VideoInputControl = ({
         />
       </div>
       <div
-        className={`flex justify-between items-center ${
-          videoSettings.twitterCompressionCommand ? "" : "border-b mb-2 pb-2"
-        }`}
+        className={`flex justify-between items-center ${videoSettings.twitterCompressionCommand ? "" : "border-b mb-2 pb-2"
+          }`}
       >
         <p>Compression for Twitter</p>
         <Switch
@@ -77,7 +76,7 @@ export const VideoInputControl = ({
               </SelectTrigger>
               <SelectContent>
                 <SelectGroup>
-                  {quality.map(({ label, value }) => (
+                  {qualities.map(({ label, value }) => (
                     <SelectItem value={value} key={value}>
                       {label}
                     </SelectItem>
@@ -87,7 +86,7 @@ export const VideoInputControl = ({
             </Select>
           </div>
           <div className="flex justify-between items-center">
-            <p>Formate</p>
+            <p>Format</p>
             <Select
               disabled={disable}
               value={videoSettings.videoType}
@@ -101,7 +100,7 @@ export const VideoInputControl = ({
               </SelectTrigger>
               <SelectContent>
                 <SelectGroup>
-                  {formate.map(({ label, value }) => (
+                  {formats.map(({ label, value }) => (
                     <SelectItem value={value} key={value}>
                       {label}
                     </SelectItem>
@@ -116,13 +115,13 @@ export const VideoInputControl = ({
   </motion.div>
 );
 
-const quality: { label: string; value: QualityType }[] = [
-  { label: "High", value: QualityType.Hight },
+const qualities: { label: string; value: QualityType }[] = [
+  { label: "High", value: QualityType.High },
   { label: "Medium", value: QualityType.Medium },
   { label: "Low", value: QualityType.Low },
 ];
 
-const formate: { label: string; value: VideoFormats }[] = [
+const formats: { label: string; value: VideoFormats }[] = [
   { label: "MP4 (.mp4)", value: VideoFormats.MP4 },
   { label: "MKV (.mkv)", value: VideoFormats.MKV },
   { label: "AVI (.avi)", value: VideoFormats.AVI },
