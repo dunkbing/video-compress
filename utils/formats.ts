@@ -21,5 +21,8 @@ export const imageFormats = ['png', 'jpg', 'jpeg', 'webp'];
 
 export const acceptedVideoFiles = {
   'video/*': videoFormats,
+};
+
+export const acceptedImageFiles = {
   'image/*': imageFormats,
 };

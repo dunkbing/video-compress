@@ -2,18 +2,21 @@
 import { useState } from "react";
 import ReactDropzone from "react-dropzone";
 import { toast } from "sonner";
-import { Projector } from "~/components/svg/projector";
+import { Images as ImagesIcon } from "lucide-react";
+import { FileVideo as FileVideoIcon } from 'lucide-react';
 
 type CustomDropZoneProps = {
   handleUpload: (files: File) => void;
   acceptedFiles: { [key: string]: string[] };
   disabled?: boolean;
+  type?: "images" | "video";
 };
 
 export const CustomDropZone = ({
   handleUpload,
   acceptedFiles,
   disabled,
+  type = "images"
 }: CustomDropZoneProps) => {
   const [isHover, setIsHover] = useState<boolean>(false);
 
@@ -52,20 +55,18 @@ export const CustomDropZone = ({
       {({ getRootProps, getInputProps }) => (
         <div
           {...getRootProps()}
-          className={`${
-            isHover ? "border-black bg-gray-100/80" : "border-default-gray"
-          } flex justify-center items-center flex-col cursor-pointer w-full py-6 ${
-            disabled ? "cursor-not-allowed" : ""
-          }`}
+          className={`${isHover ? "border-black bg-gray-100/80" : "border-default-gray"
+            } flex justify-center items-center flex-col cursor-pointer w-full py-6 ${disabled ? "cursor-not-allowed" : ""
+            }`}
         >
           <input {...getInputProps()} />
-          <Projector />
+          {type === "images" ? <ImagesIcon size={80} /> : <FileVideoIcon size={80} />}
           <h3 className="text-center mt-5 font-semibold">
             Click to select
             <br />
             or
             <br />
-            drop your video/images here
+            drop your {type} here
           </h3>
         </div>
       )}

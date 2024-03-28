@@ -6,8 +6,8 @@ import CTA from "./components/cta";
 import Footer from "~/components/Footer";
 import dynamic from "next/dynamic";
 
-const CompressVideo = dynamic(
-  () => import("~/app/(compress)/components/compress"),
+const CompressImage = dynamic(
+  () => import("~/app/(compress)/components/image"),
   {
     ssr: false,
   }
@@ -19,7 +19,7 @@ const Page = () => (
       <Hero />
       <div id="compress" className="max-w-5xl mx-auto pt-32">
         <div className="lg:grid lg:grid-cols-8 gap-10 lg:h-[calc(100dvh-130px)] pb-10 px-6 lg:px-0 flex flex-col">
-          <CompressVideo />
+          <CompressImage />
         </div>
       </div>
       <div className="space-y-6 sm:space-y-16">

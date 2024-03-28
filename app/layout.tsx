@@ -47,8 +47,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@ThatsPranav",
-    creator: "@ThatsPranav",
+    site: "@dunkbingg",
+    creator: "@dunkbingg",
   },
 };
 
