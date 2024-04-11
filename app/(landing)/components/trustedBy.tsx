@@ -4,7 +4,7 @@ import Marquee from "react-fast-marquee";
 const TrustedBy = () => {
   return (
     <div>
-      <p className="text-center font-semibold text-2xl md:text-3xl">
+      <p className="text-center text-2xl font-semibold md:text-3xl">
         Trusted by people working at
       </p>
       <Marquee autoFill className="h-28 overflow-hidden">
@@ -72,7 +72,7 @@ const TrustedBy = () => {
           </svg>
           <p className="text-4xl font-semibold text-gray-400">Microsoft</p>
         </div>
-        <div className="pl-5 mb-2">
+        <div className="mb-2 pl-5">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="w-44 text-gray-400"

@@ -1,9 +1,8 @@
 {
-  "extends": "next/core-web-vitals",
+  "extends": ["next/core-web-vitals", "eslint:recommended", "prettier"],
+  "env": { "browser": true, "node": true, "es6": true },
   "rules": {
-    "quotes": [
-      "warn",
-      "double"
-    ]
+    "quotes": ["warn", "double"],
+    "no-unused-vars": "warn"
   }
 }

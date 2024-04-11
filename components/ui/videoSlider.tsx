@@ -35,9 +35,9 @@ const VideoSlider = React.forwardRef<
         />
       </svg>
     </SliderPrimitive.Track>
-    <SliderPrimitive.Thumb className="block h-9 w-[5px] border border-transparent rounded-l-2xl bg-black transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-slate-950 disabled:pointer-events-none disabled:opacity-50 cursor-pointer" />
+    <SliderPrimitive.Thumb className="block h-9 w-[5px] cursor-pointer rounded-l-2xl border border-transparent bg-black transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-slate-950 disabled:pointer-events-none disabled:opacity-50" />
 
-    <SliderPrimitive.Thumb className="block h-9 w-[5px] border border-transparent rounded-r-2xl bg-black transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-slate-950 disabled:pointer-events-none disabled:opacity-50 cursor-pointer" />
+    <SliderPrimitive.Thumb className="block h-9 w-[5px] cursor-pointer rounded-r-2xl border border-transparent bg-black transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-slate-950 disabled:pointer-events-none disabled:opacity-50" />
   </SliderPrimitive.Root>
 ));
 VideoSlider.displayName = SliderPrimitive.Root.displayName;

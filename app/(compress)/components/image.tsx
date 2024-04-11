@@ -39,13 +39,12 @@ const CompressImage = () => {
     customEndTime: 0,
     customStartTime: 0,
     removeAudio: false,
-    twitterCompressionCommand: false,
   });
   const ffmpegRef = useRef(new FFmpeg());
   const disableDuringCompression = status === "compressing";
 
   useEffect(() => {
-    let timer: NodeJS.Timeout;
+    let timer: any;
 
     if (time?.startTime) {
       timer = setInterval(() => {
@@ -74,7 +73,7 @@ const CompressImage = () => {
     try {
       setTime({ ...time, startTime: new Date() });
       setStatus("compressing");
-      ffmpegRef.current.on("progress", ({ progress: completion, time }) => {
+      ffmpegRef.current.on("progress", ({ progress: completion }) => {
         const percentage = completion * 100;
         setProgress(percentage);
       });
@@ -140,7 +139,7 @@ const CompressImage = () => {
         exit={{ scale: 0.8, opacity: 0 }}
         key="drag"
         transition={{ type: "tween" }}
-        className="flex border rounded-3xl col-span-5 md:h-full w-full bg-gray-50/35"
+        className="col-span-5 flex w-full rounded-3xl border bg-gray-50/35 md:h-full"
       >
         {mediaFile ? (
           <VideoDisplay videoUrl={URL.createObjectURL(mediaFile.file)} />
@@ -159,9 +158,9 @@ const CompressImage = () => {
           exit={{ scale: 0.8, opacity: 0 }}
           key="size"
           transition={{ type: "tween" }}
-          className="flex border rounded-3xl col-span-3 h-full w-full bg-gray-50/35 p-4 relative"
+          className="relative col-span-3 flex h-full w-full rounded-3xl border bg-gray-50/35 p-4"
         >
-          <div className="flex flex-col gap-4 w-full">
+          <div className="flex w-full flex-col gap-4">
             {mediaFile && (
               <>
                 <VideoInputDetails
@@ -176,7 +175,7 @@ const CompressImage = () => {
               </>
             )}
             <VideoInputControl
-              disable={disableDuringCompression}
+              disabled={disableDuringCompression}
               onVideoSettingsChange={setVideoSettings}
               videoSettings={videoSettings}
             />
@@ -187,7 +186,7 @@ const CompressImage = () => {
               exit={{ scale: 0.8, opacity: 0 }}
               key="button"
               transition={{ type: "tween" }}
-              className="bg-gray-100 border border-gray-200 rounded-2xl p-3 h-fit"
+              className="h-fit rounded-2xl border border-gray-200 bg-gray-100 p-3"
             >
               {status === "compressing" && (
                 <VideoCompressProgress
@@ -200,7 +199,7 @@ const CompressImage = () => {
                 <button
                   onClick={compress}
                   type="button"
-                  className="bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-zinc-700 via-zinc-950 to-zinc-950 rounded-lg text-white/90 px-3.5 py-2.5 relative text-sm font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 transition ease-in-out duration-500 focus:ring-zinc-950 w-full plausible-event-name=Compressed"
+                  className="btn btn-primary relative w-full text-sm font-medium transition duration-500 ease-in-out"
                 >
                   Compress
                 </button>
@@ -220,4 +219,3 @@ const CompressImage = () => {
 };
 
 export default CompressImage;
-

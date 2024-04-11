@@ -49,13 +49,13 @@ export const VideoTrim = ({
       exit={{ scale: 0.8, opacity: 0 }}
       key="trim"
       transition={{ type: "tween" }}
-      className="bg-gray-100 border border-gray-200 rounded-2xl px-4 py-3 h-fit"
+      className="h-fit rounded-2xl border border-gray-200 bg-gray-100 px-4 py-3"
     >
       <div className=" text-sm">
-        <div className="flex justify-between items-center border-b mb-2 pb-2">
+        <div className="mb-2 flex items-center justify-between border-b pb-2">
           <p className="">Trim Video</p>
         </div>
-        <div className="flex justify-between items-center border-b mb-2 pb-2">
+        <div className="mb-2 flex items-center justify-between border-b pb-2">
           <VideoSlider
             disabled={disable}
             value={[customStartTime, customEndTime]}

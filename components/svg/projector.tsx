@@ -1,5 +1,5 @@
 export const Projector = () => (
-  <svg viewBox="0 0 24 24" className="w-24 h-24 ml-4" fill="none">
+  <svg viewBox="0 0 24 24" className="ml-4 h-24 w-24" fill="none">
     <path
       d="M4.5 21.5L8.5 17.5M10.5 17.5L14.5 21.5M9.5 17.5L9.5 22.5"
       stroke="currentColor"

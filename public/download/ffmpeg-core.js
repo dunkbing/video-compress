@@ -4161,10 +4161,10 @@ var createFFmpegCore = (() => {
             type = FS.isChrdev(child.mode)
               ? 2
               : FS.isDir(child.mode)
-              ? 4
-              : FS.isLink(child.mode)
-              ? 10
-              : 8;
+                ? 4
+                : FS.isLink(child.mode)
+                  ? 10
+                  : 8;
           }
           HEAP64[(dirp + pos) >> 3] = BigInt(id);
           HEAP64[(dirp + pos + 8) >> 3] = BigInt((idx + 1) * struct_size);
@@ -4788,10 +4788,10 @@ var createFFmpegCore = (() => {
           var type = stream.tty
             ? 2
             : FS.isDir(stream.mode)
-            ? 3
-            : FS.isLink(stream.mode)
-            ? 7
-            : 4;
+              ? 3
+              : FS.isLink(stream.mode)
+                ? 7
+                : 4;
         }
         HEAP8[pbuf >> 0] = type;
         HEAP16[(pbuf + 2) >> 1] = flags;

@@ -1,28 +1,27 @@
 import {
   Film,
-  FlipVertical2,
-  GitPullRequestArrow,
+  FileVideo,
+  ImageDown,
   ScissorsLineDashed,
   Tangent,
-  Users,
-  WifiOff,
+  FileType,
 } from "lucide-react";
 import React from "react";
 
 const Features = () => (
   <div
-    className="grid md:grid-cols-2  lg:grid-cols-3 gap-x-4 gap-y-20 mx-auto px-6 lg:px-0"
+    className="mx-auto grid  gap-x-4 gap-y-20 px-6 md:grid-cols-2 lg:grid-cols-3 lg:px-0"
     id="features"
   >
     {features.map(({ description, title, icon }) => (
       <div
         key={description}
-        className="text-center flex justify-center items-center flex-col gap-8"
+        className="flex flex-col items-center justify-center gap-8 text-center"
       >
         {icon}
         <div>
-          <p className="font-medium pb-4">{title}</p>
-          <p className="text-gray-500 text-balance max-w-sm">{description}</p>
+          <p className="pb-4 font-medium">{title}</p>
+          <p className="max-w-sm text-balance text-gray-500">{description}</p>
         </div>
       </div>
     ))}
@@ -32,51 +31,51 @@ const Features = () => (
 const features = [
   {
     icon: (
-      <WifiOff className="bg-gray-200/50 p-3 rounded-lg text-gray-900 w-12 h-12" />
+      <FileVideo className="h-12 w-12 rounded-lg bg-gray-200/50 p-3 text-gray-900" />
     ),
-    title: "Offline Compression",
+    title: "Video Compression",
     description:
-      "Compress videos anytime, anywhere, even without an internet connection. Maintain complete privacy with your files kept entirely offline.",
+      "Experience the magic of shrinking video sizes by up to 90% without compromising on pristine image and audio quality. Enjoy compact files that retain their visual fidelity.",
   },
   {
     icon: (
-      <FlipVertical2 className="bg-gray-200/50 p-3 rounded-lg text-gray-900 w-12 h-12" />
+      <ImageDown className="h-12 w-12 rounded-lg bg-gray-200/50 p-3 text-gray-900" />
     ),
-    title: "Lossless Compression",
+    title: "Image Compression",
     description:
-      "Shrink video sizes by up to 90% while preserving pristine image and audio quality. Enjoy smaller files without sacrificing visual fidelity.",
+      "Optimize your image files with our advanced compression technology, reducing file sizes without compromising on quality for faster uploads and downloads.",
   },
   {
     icon: (
-      <Film className="bg-gray-200/50 p-3 rounded-lg text-gray-900 w-12 h-12" />
+      <Film className="h-12 w-12 rounded-lg bg-gray-200/50 p-3 text-gray-900" />
     ),
     title: "Versatile Format Support",
     description:
-      "Work with popular video formats like MP4 and WebM, ensuring compatibility across different devices and platforms.",
+      "Embrace compatibility with our support for popular video formats like MP4 and WebM, ensuring seamless playback across various devices and platforms.",
   },
   {
     icon: (
-      <ScissorsLineDashed className="bg-gray-200/50 p-3 rounded-lg text-gray-900 w-12 h-12" />
+      <ScissorsLineDashed className="h-12 w-12 rounded-lg bg-gray-200/50 p-3 text-gray-900" />
     ),
     title: "Trim Video",
     description:
-      "Eliminate undesired segments by choosing the video's starting and ending points, and the tool will automatically trim the video on your behalf.",
+      "Take control of your video content by effortlessly removing unwanted segments with our precise start and end point selection feature.",
   },
   {
     icon: (
-      <GitPullRequestArrow className="bg-gray-200/50 p-3 rounded-lg text-gray-900 w-12 h-12" />
-    ),
-    title: "Unleash Your Creativity",
-    description:
-      "Free and open-source software empowers you to customize the code, integrate the tool into your workflow, and contribute to its development.",
-  },
-  {
-    icon: (
-      <Tangent className="bg-gray-200/50 p-3 rounded-lg text-gray-900 w-12 h-12" />
+      <Tangent className="h-12 w-12 rounded-lg bg-gray-200/50 p-3 text-gray-900" />
     ),
     title: "Intuitive Interface",
     description:
-      "Enjoy a user-friendly experience with a straightforward design, making video compression effortless for everyone, regardless of technical expertise.",
+      "Discover the joy of video compression with our user-friendly interface, designed to make the process simple and accessible for all, regardless of technical skill level.",
+  },
+  {
+    icon: (
+      <FileType className="h-12 w-12 rounded-lg bg-gray-200/50 p-3 text-gray-900" />
+    ),
+    title: "Image Format Conversion",
+    description:
+      "Easily convert your images to different formats, ensuring compatibility with various platforms and devices for a seamless user experience.",
   },
 ];
 

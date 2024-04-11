@@ -1,27 +1,18 @@
 import React from "react";
-import { Switch } from "~/components/ui/switch";
-import { QualityType, VideoFormats, VideoInputSettings } from "~/types";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "~/components/ui/select";
 import { motion } from "framer-motion";
+
+import { QualityType, VideoFormats, VideoInputSettings } from "~/types";
 
 type VideoControlDetailsProps = {
   videoSettings: VideoInputSettings;
   onVideoSettingsChange: (value: VideoInputSettings) => void;
-  disable: boolean;
+  disabled: boolean;
 };
 
 export const VideoInputControl = ({
   videoSettings,
   onVideoSettingsChange,
-  disable,
+  disabled,
 }: VideoControlDetailsProps) => (
   <motion.div
     layout
@@ -30,87 +21,60 @@ export const VideoInputControl = ({
     exit={{ scale: 0.8, opacity: 0 }}
     transition={{ type: "tween" }}
     key="input"
-    className="bg-gray-100 border border-gray-200 rounded-2xl px-4 py-3 h-fit"
+    className="h-fit rounded-2xl border border-gray-200 bg-gray-100 px-4 py-3"
   >
     <div className="text-sm">
-      <div className="flex justify-between items-center border-b mb-2 pb-2">
+      <div className="mb-2 flex items-center justify-between border-b pb-2">
         <p>Remove Audio</p>
-        <Switch
-          disabled={disable}
-          onCheckedChange={(value: boolean) =>
-            onVideoSettingsChange({ ...videoSettings, removeAudio: value })
-          }
+        <input
+          type="checkbox"
+          className="toggle"
           checked={videoSettings.removeAudio}
-        />
-      </div>
-      <div
-        className={`flex justify-between items-center ${videoSettings.twitterCompressionCommand ? "" : "border-b mb-2 pb-2"
-          }`}
-      >
-        <p>Compression for Twitter</p>
-        <Switch
-          disabled={disable}
-          onCheckedChange={(value: boolean) =>
+          disabled={disabled}
+          onChange={(e) =>
             onVideoSettingsChange({
               ...videoSettings,
-              twitterCompressionCommand: value,
+              removeAudio: e.target.checked,
             })
           }
-          checked={videoSettings.twitterCompressionCommand}
         />
       </div>
-      {!videoSettings.twitterCompressionCommand && (
-        <>
-          <div className="flex justify-between items-center border-b mb-2 pb-2">
-            <p>Quality</p>
-            <Select
-              disabled={disable}
-              value={videoSettings.quality}
-              onValueChange={(value: string) => {
-                const quality = value as QualityType;
-                onVideoSettingsChange({ ...videoSettings, quality });
-              }}
-            >
-              <SelectTrigger className="w-[100px] text-sm">
-                <SelectValue placeholder="Select Quality" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectGroup>
-                  {qualities.map(({ label, value }) => (
-                    <SelectItem value={value} key={value}>
-                      {label}
-                    </SelectItem>
-                  ))}
-                </SelectGroup>
-              </SelectContent>
-            </Select>
-          </div>
-          <div className="flex justify-between items-center">
-            <p>Format</p>
-            <Select
-              disabled={disable}
-              value={videoSettings.videoType}
-              onValueChange={(value: string) => {
-                const videoType = value as VideoFormats;
-                onVideoSettingsChange({ ...videoSettings, videoType });
-              }}
-            >
-              <SelectTrigger className="w-[150px]">
-                <SelectValue placeholder="Select Quality" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectGroup>
-                  {formats.map(({ label, value }) => (
-                    <SelectItem value={value} key={value}>
-                      {label}
-                    </SelectItem>
-                  ))}
-                </SelectGroup>
-              </SelectContent>
-            </Select>
-          </div>
-        </>
-      )}
+      <div className="mb-2 flex items-center justify-between border-b pb-2">
+        <p>Quality</p>
+        <select
+          disabled={disabled}
+          value={videoSettings.quality}
+          onChange={(e) => {
+            const quality = e.target.value as QualityType;
+            onVideoSettingsChange({ ...videoSettings, quality });
+          }}
+          className="select select-bordered select-sm"
+        >
+          {qualities.map(({ label, value }) => (
+            <option value={value} key={value}>
+              {label}
+            </option>
+          ))}
+        </select>
+      </div>
+      <div className="flex items-center justify-between">
+        <p>Format</p>
+        <select
+          disabled={disabled}
+          value={videoSettings.videoType}
+          onChange={(e) => {
+            const videoType = e.target.value as VideoFormats;
+            onVideoSettingsChange({ ...videoSettings, videoType });
+          }}
+          className="select select-bordered select-sm"
+        >
+          {formats.map(({ label, value }) => (
+            <option value={value} key={value}>
+              {label}
+            </option>
+          ))}
+        </select>
+      </div>
     </div>
   </motion.div>
 );

@@ -1,10 +1,10 @@
 const Page = () => {
   return (
-    <div className="max-w-5xl mx-auto pt-36 space-y-10 px-6 sm:px-0 pb-10">
-      <h1 className="text-4xl font-bold  lg lg:font-semibold text-gray-900">
+    <div className="mx-auto max-w-5xl space-y-10 px-6 pb-10 pt-36 sm:px-0">
+      <h1 className="lg text-4xl  font-bold text-gray-900 lg:font-semibold">
         The Story Behind Compress
       </h1>
-      <div className="text-lg sm:text-xl space-y-5 text-gray-500 font-medium">
+      <div className="space-y-5 text-lg font-medium text-gray-500 sm:text-xl">
         <p>
           It all started with a{" "}
           <span className="text-black">burning need.</span> As a developer, I

@@ -1,11 +1,11 @@
 const VideoDemo = () => (
-  <div className="px-6 relative">
+  <div className="relative px-6">
     <video
       autoPlay
       loop
       playsInline
       preload="auto"
-      className="h-full rounded-3xl w-full object-cover border-8 overflow-clip"
+      className="h-full w-full overflow-clip rounded-3xl border-8 object-cover"
     >
       <source src="/demo.mp4" type="video/mp4" />
       <source src="/demo.webm" type="video/webm" />
