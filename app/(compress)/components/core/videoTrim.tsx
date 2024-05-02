@@ -1,4 +1,5 @@
 "use client";
+
 import { useEffect, useState } from "react";
 import { VideoSlider } from "~/components/ui/videoSlider";
 import { VideoInputSettings } from "~/types";

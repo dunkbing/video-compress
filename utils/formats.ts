@@ -25,4 +25,5 @@ export const acceptedVideoFiles = {
 
 export const acceptedImageFiles = {
   "image/*": imageFormats,
+  "video/*": videoFormats,
 };

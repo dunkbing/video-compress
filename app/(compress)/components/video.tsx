@@ -8,7 +8,7 @@ import { toast } from "sonner";
 import { motion, AnimatePresence } from "framer-motion";
 
 import convertFile from "~/utils/convert";
-import { VideoDisplay } from "./core/videoDisplay";
+import { VideoDisplay } from "./core/mediaDisplay";
 import { CustomDropZone } from "./core/customDropZone";
 import { VideoInputDetails } from "./core/videoInputDetails";
 import { VideoInputControl } from "./core/videoInputControl";

@@ -1,4 +1,4 @@
-import { Loader, XCircle } from "lucide-react";
+import { Loader } from "lucide-react";
 import { Progress } from "~/components/ui/progress";
 import { formatTime } from "~/utils/convert";
 

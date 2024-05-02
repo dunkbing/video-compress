@@ -6,9 +6,10 @@ import { acceptedImageFiles } from "~/utils/formats";
 import { FFmpeg } from "@ffmpeg/ffmpeg";
 import { toBlobURL } from "@ffmpeg/util";
 import { toast } from "sonner";
+import { motion, AnimatePresence } from "framer-motion";
 
 import convertFile from "~/utils/convert";
-import { VideoDisplay } from "./core/videoDisplay";
+import { VideoDisplay } from "./core/mediaDisplay";
 import { CustomDropZone } from "./core/customDropZone";
 import { VideoInputDetails } from "./core/videoInputDetails";
 import { VideoInputControl } from "./core/videoInputControl";
@@ -21,10 +22,12 @@ import {
   VideoFormats,
   VideoInputSettings,
 } from "~/types";
-import { motion, AnimatePresence } from "framer-motion";
+import FormatSelection from "./core/formatSelection";
+
+const isImage = (file?: string) => file?.startsWith("image");
 
 const CompressImage = () => {
-  const [mediaFile, setMediaFile] = useState<FileActions>();
+  const [mediaFile, setMediaFile] = useState<FileActions | null>();
   const [progress, setProgress] = useState<number>(0);
   const [time, setTime] = useState<{
     startTime?: Date;
@@ -70,6 +73,7 @@ const CompressImage = () => {
 
   const compress = async () => {
     if (!mediaFile) return;
+
     try {
       setTime({ ...time, startTime: new Date() });
       setStatus("compressing");
@@ -142,7 +146,17 @@ const CompressImage = () => {
         className="col-span-5 flex w-full rounded-3xl border bg-gray-50/35 md:h-full"
       >
         {mediaFile ? (
-          <VideoDisplay videoUrl={URL.createObjectURL(mediaFile.file)} />
+          isImage(mediaFile.fileType) ? (
+            <VideoDisplay
+              mediaUrl={URL.createObjectURL(mediaFile.file)}
+              mediaType="image"
+            />
+          ) : (
+            <VideoDisplay
+              mediaUrl={URL.createObjectURL(mediaFile.file)}
+              mediaType="video"
+            />
+          )
         ) : (
           <CustomDropZone
             acceptedFiles={acceptedImageFiles}
@@ -164,21 +178,26 @@ const CompressImage = () => {
             {mediaFile && (
               <>
                 <VideoInputDetails
-                  onClear={() => window.location.reload()}
+                  onClear={() => setMediaFile(null)}
                   videoFile={mediaFile}
                 />
-                <VideoTrim
-                  disable={disableDuringCompression}
-                  onVideoSettingsChange={setVideoSettings}
-                  videoSettings={videoSettings}
-                />
+                {!isImage(mediaFile.fileType) && (
+                  <VideoTrim
+                    disable={disableDuringCompression}
+                    onVideoSettingsChange={setVideoSettings}
+                    videoSettings={videoSettings}
+                  />
+                )}
               </>
             )}
-            <VideoInputControl
-              disabled={disableDuringCompression}
-              onVideoSettingsChange={setVideoSettings}
-              videoSettings={videoSettings}
-            />
+            {!isImage(mediaFile?.fileType) && (
+              <VideoInputControl
+                disabled={disableDuringCompression}
+                onVideoSettingsChange={setVideoSettings}
+                videoSettings={videoSettings}
+              />
+            )}
+            {isImage(mediaFile?.fileType) && <FormatSelection />}
             <motion.div
               layout
               initial={{ scale: 0.8, opacity: 0 }}
@@ -200,6 +219,7 @@ const CompressImage = () => {
                   onClick={compress}
                   type="button"
                   className="btn btn-primary relative w-full text-sm font-medium transition duration-500 ease-in-out"
+                  disabled={!mediaFile}
                 >
                   Compress
                 </button>

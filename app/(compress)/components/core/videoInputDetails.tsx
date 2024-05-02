@@ -23,11 +23,11 @@ export const VideoInputDetails = ({
   >
     <div className=" text-sm">
       <div className="mb-2 flex items-center justify-between border-b pb-2">
-        <p className="">Fill Input</p>
+        <p className="">File Input</p>
         <button
           onClick={onClear}
           type="button"
-          className="relative rounded-lg bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-zinc-700 via-zinc-950 to-zinc-950 px-2.5 py-1.5 text-sm font-medium text-white/90 transition duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-zinc-950 focus:ring-offset-2"
+          className="btn btn-secondary btn-sm"
         >
           Clear
         </button>

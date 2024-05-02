@@ -1,9 +1,7 @@
 import { FFmpeg } from "@ffmpeg/ffmpeg";
 import { fetchFile } from "@ffmpeg/util";
 import { FileActions, VideoInputSettings } from "~/types";
-import {
-  customVideoCompressionCommand,
-} from "./ffmpegCommands";
+import { customVideoCompressionCommand } from "./ffmpegCommands";
 
 function removeFileExtension(fileName: string) {
   const lastDotIndex = fileName.lastIndexOf(".");
@@ -21,7 +19,11 @@ export default async function convertFile(
   const { file, fileName, fileType } = actionFile;
   const output = removeFileExtension(fileName) + "." + videoSettings.videoType;
   ffmpeg.writeFile(fileName, await fetchFile(file));
-  const command = customVideoCompressionCommand(fileName, output, videoSettings);
+  const command = customVideoCompressionCommand(
+    fileName,
+    output,
+    videoSettings
+  );
   console.log(command);
   await ffmpeg.exec(command);
   const data = await ffmpeg.readFile(output);
